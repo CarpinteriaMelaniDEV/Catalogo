@@ -28,6 +28,7 @@
   <nav class="main-nav" aria-label="Navegación principal">
     <a href="#catalogo">Catálogo</a>
     <a href="#proceso">Cómo trabajamos</a>
+    <button class="admin-open-button" id="openAdmin" type="button">Admin ↗</button>
     <a class="nav-cta" href="#contacto">
       Cotizar proyecto <span>↗</span>
     </a>
@@ -1749,8 +1750,37 @@
   </main>
 
   <footer class="site-footer"><a class="brand footer-brand" href="#inicio"><span class="brand-logo-wrap"><img class="brand-logo" src="imagenes/Logo carpinteria.png" alt="Logo Carpintería Melani"></span><span class="brand-copy"><strong>CARPINTERÍA MELANI</strong><small>CARPINTERÍA</small></span></a><span>Diseñado con intención. Fabricado con cuidado.</span><a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a><small class="copyright">© <span id="year"></span> CARPINTERÍA MELANI ESTUDIO</small></footer>
+
+  <section class="admin-overlay" id="adminOverlay" aria-hidden="true">
+    <div class="admin-panel" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <button class="admin-close" id="closeAdmin" aria-label="Cerrar panel" type="button">×</button>
+      <p class="eyebrow"><span class="eyebrow-line"></span> PANEL PRIVADO</p>
+      <h2 id="adminTitle">Administrar <em>catálogo</em></h2>
+      <p class="admin-note">Agrega productos, edita sus datos o elimínalos del catálogo.</p>
+      <div class="admin-login" id="adminLogin">
+        <label>Contraseña de administrador<input id="adminPassword" type="password" placeholder="Contraseña" autocomplete="current-password"></label>
+        <button class="button button-dark" id="adminLoginButton" type="button">Entrar <span>↗</span></button>
+        <p class="admin-feedback" id="adminLoginFeedback">Acceso de demostración: cambia la contraseña en admin.js antes de publicar.</p>
+      </div>
+      <div class="admin-workspace" id="adminWorkspace" hidden>
+        <form id="productForm" class="admin-form">
+          <input type="hidden" id="editProductId">
+          <label>Nombre del producto<input id="adminProductName" required placeholder="Ej. Cocina integral moderna"></label>
+          <label>Categoría<select id="adminProductCategory" required>
+            <option value="cocinas">Cocinas</option><option value="closets">Closets</option><option value="bano">Muebles de baño</option><option value="tele">Muebles para TV</option><option value="camas">Camas</option><option value="puertas">Puertas</option><option value="otros">Otros</option>
+          </select></label>
+          <label>Descripción<textarea id="adminProductDescription" rows="2" placeholder="Materiales, medidas, acabados..."></textarea></label>
+          <label>Imagen (URL o ruta relativa)<input id="adminProductImage" placeholder="imagenes/cocinas/cocina-nueva.jpg"></label>
+          <div class="admin-form-actions"><button class="button button-dark" id="saveProductButton" type="submit">Guardar producto <span>↗</span></button><button class="admin-secondary" id="cancelEdit" type="button">Limpiar</button></div>
+          <p class="admin-feedback" id="adminSaveFeedback"></p>
+        </form>
+        <div class="admin-list-heading"><h3>Productos del catálogo</h3><span id="adminProductCount"></span></div>
+        <div class="admin-product-list" id="adminProductList"></div>
+      </div>
+    </div>
+  </section>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js"></script>
 
   <!-- Visor de fotografías en tamaño original -->
   <div class="lightbox" id="imageLightbox" aria-hidden="true">
@@ -1766,5 +1796,7 @@
     </div>
   </div>
 
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>
