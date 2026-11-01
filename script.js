@@ -3,7 +3,7 @@ const mainNav = document.querySelector('.main-nav');
 const header = document.querySelector('.site-header');
 const filterButtons = [...document.querySelectorAll('.filter-btn')];
 const subButtons = [...document.querySelectorAll('.sub-filter')];
-const cards = [...document.querySelectorAll('.product-card')];
+let cards = [...document.querySelectorAll('.product-card')];
 const searchInput = document.querySelector('#searchInput');
 const emptyState = document.querySelector('#emptyState');
 const toast = document.querySelector('#toast');
@@ -64,6 +64,10 @@ function applyFilters() {
   });
   emptyState.hidden = visibleCount > 0;
 }
+window.refreshCatalogFilters = () => {
+  cards = [...document.querySelectorAll('#productGrid .product-card')];
+  applyFilters();
+};
 filterButtons.forEach(button => button.addEventListener('click', () => {
   activeCategory = button.dataset.filter;
   filterButtons.forEach(item => item.classList.toggle('active', item === button));
