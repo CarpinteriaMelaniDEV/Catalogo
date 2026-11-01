@@ -1,0 +1,3 @@
+Coloca aquí las imágenes de otro.
+Nombres esperados: otro1.jpg hasta otro7.jpg
+Puedes usar JPG. Si tus fotos son PNG o WEBP, cambia también la extensión en index.html.
