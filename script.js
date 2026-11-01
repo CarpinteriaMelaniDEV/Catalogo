@@ -271,7 +271,6 @@ function setupProductGallery(container) {
 
 productImages.forEach(setupProductGallery);
 
-
 // =========================================================
 // Visor de imagen en tamaño original
 // =========================================================
