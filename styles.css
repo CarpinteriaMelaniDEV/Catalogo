@@ -255,3 +255,49 @@ body.lightbox-open{overflow:hidden}
   .lightbox-prev{left:0}
   .lightbox-next{right:0}
 }
+
+
+/* Panel de administración del catálogo */
+.admin-open-button{border:1px solid #a77a4f;background:transparent;color:var(--ink);padding:11px 14px;font-size:11px;transition:.25s}
+.admin-open-button:hover{background:var(--ink);color:white}
+.admin-overlay{position:fixed;inset:0;z-index:150;display:flex;justify-content:flex-end;background:rgba(15,14,11,.66);backdrop-filter:blur(5px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s,visibility .25s}
+.admin-overlay.is-open{opacity:1;visibility:visible;pointer-events:auto}
+.admin-panel{position:relative;width:min(680px,100%);height:100%;overflow:auto;background:var(--paper);padding:46px clamp(20px,5vw,48px) 40px;transform:translateX(30px);transition:transform .3s}
+.admin-overlay.is-open .admin-panel{transform:translateX(0)}
+.admin-close{position:absolute;right:22px;top:18px;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:transparent;font-size:27px}
+.admin-panel h2{font:500 clamp(34px,5vw,50px)/1.05 var(--display);letter-spacing:-.06em;margin:0}
+.admin-panel h2 em{font-family:var(--serif);font-weight:400;color:var(--wood)}
+.admin-note{font-size:12px;color:var(--muted);line-height:1.7;margin:15px 0 28px}
+.admin-login,.admin-form{display:flex;flex-direction:column;gap:16px}
+.admin-login label,.admin-form label{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:700}
+.admin-login input,.admin-form input,.admin-form select,.admin-form textarea{width:100%;border:1px solid var(--line);background:var(--white);padding:12px 13px;color:var(--ink);outline:none;font-size:12px;border-radius:2px}
+.admin-login input:focus,.admin-form input:focus,.admin-form select:focus,.admin-form textarea:focus{border-color:var(--wood)}
+.admin-feedback{font-size:10px;color:var(--muted);line-height:1.5;margin:0}
+.admin-form{padding:20px;background:#ebe7de;border:1px solid var(--line)}
+.admin-form-actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.admin-secondary{background:transparent;border:1px solid var(--line);padding:14px 18px;font-size:11px}
+.admin-list-heading{display:flex;justify-content:space-between;align-items:center;margin:30px 0 12px}
+.admin-list-heading h3{font:600 17px var(--display);margin:0}
+.admin-list-heading span{font-size:10px;color:var(--muted)}
+.admin-product-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.admin-product-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);min-width:0}
+.admin-product-thumb{width:48px;height:48px;flex:0 0 48px;background:#e2ddd3;display:grid;place-items:center;overflow:hidden;font-size:12px;color:var(--muted)}
+.admin-product-thumb img{width:100%;height:100%;object-fit:cover}
+.admin-product-summary{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+.admin-product-summary strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.admin-product-summary small{font-size:9px;color:var(--muted)}
+.admin-edit,.admin-delete{background:transparent;border:1px solid var(--line);padding:8px 9px;font-size:10px}
+.admin-edit:hover{border-color:var(--wood);color:var(--wood)}
+.admin-delete:hover{border-color:#a34d3d;color:#a34d3d}
+.admin-product-image{cursor:zoom-in}
+.admin-product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.admin-product-image:hover img{transform:scale(1.05)}
+.admin-no-image{height:100%;display:grid;place-items:center;text-align:center;padding:20px;font-size:10px;color:var(--muted)}
+body.admin-open{overflow:hidden}
+[hidden]{display:none!important}
+@media(max-width:680px){
+ .admin-open-button{padding:9px 10px;font-size:10px}
+ .admin-panel{padding-top:58px}
+ .admin-product-row{gap:6px}
+ .admin-edit,.admin-delete{padding:7px 6px}
+}
